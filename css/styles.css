@@ -1,0 +1,26 @@
+:root {
+  --bs-primary: #6f42c1;
+  --bs-primary-rgb: 111,66,193;
+  --bs-link-color: #6f42c1;
+  --bs-link-hover-color: #59339d;
+}
+
+body { background: #f7f7fb; }
+.hero { min-height: 360px; background: linear-gradient(135deg, #111827 0%, #6f42c1 100%); }
+.hero .display-title { text-wrap: balance; }
+.brand-mark { letter-spacing: .04em; }
+.product-card img { height: 220px; object-fit: cover; }
+.product-detail-img { max-height: 520px; object-fit: cover; }
+.blog-img { height: 220px; object-fit: cover; }
+.admin-sidebar { min-height: 100vh; }
+.table td, .table th { vertical-align: middle; }
+.form-error { min-height: 1.25rem; }
+.avatar { width: 44px; height: 44px; }
+.hero-media { max-height: 330px; object-fit: cover; }
+.sticky-summary { top: 1rem; }
+.cart-img { height: 90px; object-fit: cover; width: 100%; }
+.article-narrow { max-width: 900px; }
+@media (max-width: 767.98px) {
+  .hero { min-height: 320px; }
+  .product-card img { height: 190px; }
+}
