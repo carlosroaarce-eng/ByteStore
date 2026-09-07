@@ -1,0 +1,29 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="ByteStore, tienda online de tecnología y accesorios."><title>ByteStore | Contacto</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="css/styles.css"></head><body>
+<header>
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold brand-mark" href="index.html">ByteStore</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir navegación"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"><li class="nav-item"><a class="nav-link "  href="index.html">Inicio</a></li><li class="nav-item"><a class="nav-link "  href="productos.html">Productos</a></li><li class="nav-item"><a class="nav-link "  href="nosotros.html">Nosotros</a></li><li class="nav-item"><a class="nav-link "  href="blogs.html">Blog</a></li><li class="nav-item"><a class="nav-link active" aria-current="page" href="contacto.html">Contacto</a></li></ul>
+      <div class="d-flex flex-column flex-lg-row gap-2 align-items-lg-center">
+        <a class="btn btn-sm btn-outline-light" href="login.html">Iniciar sesión</a>
+        <a class="btn btn-sm btn-light" href="registro.html">Registrarse</a>
+        <a class="btn btn-sm btn-warning" href="carrito.html">🛒 Carrito <span class="badge text-bg-dark" id="cart-count">0</span></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+</header><main class="container py-5"><div class="row g-5 align-items-start"><div class="col-lg-5"><span class="text-uppercase small text-primary fw-semibold">Contacto</span><h1 class="fw-bold">Hablemos</h1><p class="lead text-secondary">Envíanos tu consulta y responderemos dentro de nuestros canales de atención.</p><div class="card border-0 shadow-sm"><div class="card-body"><div class="mb-3"><strong>Correo:</strong> contacto@bytestore.cl</div><div class="mb-3"><strong>Horario:</strong> lunes a viernes, 09:00 a 18:00</div><div><strong>Ubicación:</strong> Santiago, Chile</div></div></div></div><div class="col-lg-7"><div class="card shadow-sm border-0"><div class="card-body p-4"><form id="form-contacto" novalidate><div class="mb-3"><label class="form-label" for="nombre">Nombre</label><input id="nombre" name="nombre" class="form-control" maxlength="20" autocomplete="name" require pattern="[A-Za-zÁÉÍÓÚÜáéíóúüÑñ ]+"><div id="error-nombre" class="invalid-feedback"></div></div><div class="mb-3"><label class="form-label" for="correo">Correo</label><input id="correo" name="correo" type="email" class="form-control" maxlength="100" autocomplete="email" required><div id="error-correo" class="invalid-feedback"></div></div><div class="mb-3"><label class="form-label" for="comentario">Comentario</label><textarea id="comentario" name="comentario" class="form-control" rows="6" maxlength="500" required></textarea><div id="error-comentario" class="invalid-feedback"></div></div><button class="btn btn-primary">Enviar mensaje</button><div id="mensaje-exito" class="alert alert-success d-none mt-3"></div></form></div></div></div></div></main>
+<footer class="site-footer">
+  <div class="container">
+    <p class="mb-0">© 2026 ByteStore. Todos los derechos reservados.</p>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <a href="productos.html">Periféricos</a>
+      <a href="productos.html">Monitores</a>
+      <a href="productos.html">Accesorios</a>
+    </div>
+  </div>
+</footer><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script><script src="js/datos.js"></script><script src="js/app.js"></script><script src="js/validaciones.js"></script></body></html>

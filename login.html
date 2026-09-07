@@ -1,0 +1,29 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="ByteStore, tienda online de tecnología y accesorios."><title>ByteStore | Iniciar sesión</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="css/styles.css"></head><body>
+<header>
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold brand-mark" href="index.html">ByteStore</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir navegación"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"><li class="nav-item"><a class="nav-link "  href="index.html">Inicio</a></li><li class="nav-item"><a class="nav-link "  href="productos.html">Productos</a></li><li class="nav-item"><a class="nav-link "  href="nosotros.html">Nosotros</a></li><li class="nav-item"><a class="nav-link "  href="blogs.html">Blog</a></li><li class="nav-item"><a class="nav-link "  href="contacto.html">Contacto</a></li></ul>
+      <div class="d-flex flex-column flex-lg-row gap-2 align-items-lg-center">
+        <a class="btn btn-sm btn-outline-light" href="login.html">Iniciar sesión</a>
+        <a class="btn btn-sm btn-light" href="registro.html">Registrarse</a>
+        <a class="btn btn-sm btn-warning" href="carrito.html">🛒 Carrito <span class="badge text-bg-dark" id="cart-count">0</span></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+</header><main class="container py-5"><div class="row justify-content-center"><div class="col-lg-6"><div class="card shadow-sm border-0"><div class="card-body p-4 p-lg-5"><div class="text-center mb-4"><div class="display-6 fw-bold">ByteStore</div><p class="text-secondary">Ingresa a tu cuenta</p></div><form id="form-login" novalidate><div class="mb-3"><label class="form-label" for="login-correo">Correo</label><input id="login-correo" name="correo" type="email" class="form-control" maxlength="100" autocomplete="email" required><div id="error-login-correo" class="invalid-feedback"></div></div><div class="mb-3"><label class="form-label" for="login-password">Contraseña</label><input id="login-password" name="password" type="password" class="form-control" minlength="4" maxlength="10" autocomplete="current-password" required><div id="error-login-password" class="invalid-feedback"></div></div><button class="btn btn-primary w-100">Ingresar</button><div id="mensaje-login-error" class="alert alert-danger d-none mt-3"></div><div id="mensaje-login-exito" class="alert alert-success d-none mt-3">Inicio correcto. Redirigiendo...</div></form><div class="alert alert-light border mt-4 small mb-0"><strong>Demo:</strong> admin@gmail.com / 1234 · vendedor@gmail.com / 1234 · cliente@gmail.com / 1234</div></div></div></div></div></main>
+<footer class="site-footer">
+  <div class="container">
+    <p class="mb-0">© 2026 ByteStore. Todos los derechos reservados.</p>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <a href="productos.html">Periféricos</a>
+      <a href="productos.html">Monitores</a>
+      <a href="productos.html">Accesorios</a>
+    </div>
+  </div>
+</footer><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script><script src="js/datos.js"></script><script src="js/app.js"></script><script src="js/validaciones.js"></script></body></html>
