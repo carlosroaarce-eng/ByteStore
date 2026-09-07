@@ -411,7 +411,7 @@ function cargarUsuarioForm() {
   if (!id) return;
   const user = getUsuarios().find(entry => entry.id === id);
   if (!user) return;
-  Object.entries({ run:user.run, nombres:user.nombres, apellidos:user.apellidos, correo:user.correo, password:user.password || '', fechaNacimiento:user.fechaNacimiento, tipo:user.tipo, region:user.region, comuna:user.comuna, direccion:user.direccion, estado:user.estado }).forEach(([key, value]) => {
+  Object.entries({ run: user.run, nombres: user.nombres, apellidos: user.apellidos, correo: user.correo, password: user.password || '', fechaNacimiento: user.fechaNacimiento, tipo: user.tipo, region: user.region, comuna: user.comuna, direccion: user.direccion, estado: user.estado }).forEach(([key, value]) => {
     if (form.elements[key]) form.elements[key].value = value;
   });
   if (form.elements.id) form.elements.id.value = id;
@@ -433,9 +433,9 @@ function guardarUsuario(event) {
   if (duplicate) return mostrarErrorGeneral(form, 'Ya existe un usuario con ese RUN o correo.');
   const record = {
     id: id || Math.max(0, ...usuarios.map(u => Number(u.id) || 0)) + 1, run,
-    nombres:data.nombres.trim(), apellidos:data.apellidos.trim(), correo,
-    password:data.password, fechaNacimiento:data.fechaNacimiento || '', tipo:data.tipo,
-    region:data.region, comuna:data.comuna, direccion:data.direccion.trim(), estado:data.estado || 'Activo'
+    nombres: data.nombres.trim(), apellidos: data.apellidos.trim(), correo,
+    password: data.password, fechaNacimiento: data.fechaNacimiento || '', tipo: data.tipo,
+    region: data.region, comuna: data.comuna, direccion: data.direccion.trim(), estado: data.estado || 'Activo'
   };
   if (id) {
     const index = usuarios.findIndex(u => u.id === id);

@@ -1,13 +1,129 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Administración ByteStore"><title>ByteStore Admin | Producto</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="../css/styles.css"></head><body class="bg-light"><header>
-<nav class="navbar navbar-dark bg-dark d-lg-none"><div class="container"><a class="navbar-brand fw-bold" href="index.html">ByteStore Admin</a><button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#adminMenu"><span class="navbar-toggler-icon"></span></button></div></nav>
-</header>
-<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="adminMenu"><div class="offcanvas-header"><h2 class="offcanvas-title h5">ByteStore Admin</h2><button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button></div><div class="offcanvas-body"><div class="d-grid gap-2"><a class="btn btn-outline-light text-start" href="index.html">Inicio</a><a class="btn btn-outline-light text-start" data-role="Administrador,Vendedor" href="productos.html">Productos</a><a class="btn btn-outline-light text-start" data-role="Administrador" href="usuarios.html">Usuarios</a><a class="btn btn-outline-light text-start" data-role="Administrador,Vendedor" href="ordenes.html">Órdenes</a><a class="btn btn-outline-light text-start" href="../index.html">Ver tienda</a><button class="btn btn-warning text-start" id="logout-btn">Cerrar sesión</button></div></div></div><div class="container-fluid"><div class="row"><aside class="col-lg-2 d-none d-lg-flex flex-column bg-dark text-white p-3 admin-sidebar position-sticky top-0"><a href="index.html" class="navbar-brand fw-bold mb-4">ByteStore Admin</a><div class="d-grid gap-2"><a class="btn btn-outline-light text-start" href="index.html">Inicio</a><a class="btn btn-outline-light text-start" data-role="Administrador,Vendedor" href="productos.html">Productos</a><a class="btn btn-outline-light text-start" data-role="Administrador" href="usuarios.html">Usuarios</a><a class="btn btn-outline-light text-start" data-role="Administrador,Vendedor" href="ordenes.html">Órdenes</a><a class="btn btn-outline-light text-start" href="../index.html">Ver tienda</a><button class="btn btn-warning text-start" id="logout-btn-2">Cerrar sesión</button></div><div class="mt-auto small opacity-75">Sesión: <span id="session-name">Sin sesión</span></div></aside><main class="col-lg-10 px-0"><div class="container-fluid py-4"><div class="row justify-content-center"><div class="col-xl-9"><div class="card border-0 shadow-sm"><div class="card-body p-4"><div class="mb-4"><h1 id="form-title" class="fw-bold">Nuevo producto</h1><p class="text-secondary">Todos los campos obligatorios siguen las reglas del proyecto.</p></div><form id="form-admin-producto" class="needs-validation" novalidate><input type="hidden" name="id"><div class="row g-3"><div class="col-md-4"><label class="form-label">Código producto</label><input name="codigo" class="form-control" minlength="3" required><div id="error-prod-codigo" class="invalid-feedback"></div></div><div class="col-md-8"><label class="form-label">Nombre</label><input name="nombre" class="form-control" maxlength="100" required><div id="error-prod-nombre" class="invalid-feedback"></div></div><div class="col-12"><label class="form-label">Descripción</label><textarea name="descripcion" class="form-control" maxlength="500" rows="3"></textarea><div id="error-prod-descripcion" class="invalid-feedback"></div></div><div class="col-md-4"><label class="form-label">Precio</label><input name="precio" type="number" min="0" step="0.01" class="form-control" required><div id="error-prod-precio" class="invalid-feedback"></div></div><div class="col-md-4"><label class="form-label">Stock</label><input name="stock" type="number" min="0" step="1" class="form-control" required><div id="error-prod-stock" class="invalid-feedback"></div></div><div class="col-md-4"><label class="form-label">Stock crítico</label><input name="stockCritico" type="number" min="0" step="1" class="form-control"><div id="error-prod-stock-critico" class="invalid-feedback"></div></div><div class="col-md-6"><label class="form-label">Categoría</label><select name="categoria" class="form-select" required><option value="">Seleccione</option><option>Periféricos</option><option>Monitores</option><option>Computadores</option><option>Audio</option><option>Accesorios</option></select><div id="error-prod-categoria" class="invalid-feedback"></div></div><div class="col-md-6"><label class="form-label">Imagen externa</label><input name="imagen" type="url" class="form-control" placeholder="https://..."><div id="error-prod-imagen" class="invalid-feedback"></div><div class="form-text">Se recomienda una URL de imagen externa, por ejemplo Pexels.</div></div></div><div class="d-flex gap-2 mt-4"><button class="btn btn-primary">Guardar producto</button><a href="productos.html" class="btn btn-outline-secondary">Cancelar</a></div></form></div></div></div></div></div></main></div></div><footer class="site-footer">
-  <div class="container">
-    <p class="mb-0">© 2026 ByteStore. Todos los derechos reservados.</p>
-    <div class="d-flex flex-wrap justify-content-center gap-3">
-      <a href="productos.html">Periféricos</a>
-      <a href="productos.html">Monitores</a>
-      <a href="productos.html">Accesorios</a>
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Administración ByteStore">
+  <title>ByteStore Admin | Producto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body class="bg-light">
+  <header>
+    <nav class="navbar navbar-dark bg-dark d-lg-none">
+      <div class="container"><a class="navbar-brand fw-bold" href="index.html">ByteStore Admin</a><button
+          class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#adminMenu"><span
+            class="navbar-toggler-icon"></span></button></div>
+    </nav>
+  </header>
+  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="adminMenu">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title h5">ByteStore Admin</h2><button type="button" class="btn-close btn-close-white"
+        data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="d-grid gap-2"><a class="btn btn-outline-light text-start" href="index.html">Inicio</a><a
+          class="btn btn-outline-light text-start" data-role="Administrador,Vendedor"
+          href="productos.html">Productos</a><a class="btn btn-outline-light text-start" data-role="Administrador"
+          href="usuarios.html">Usuarios</a><a class="btn btn-outline-light text-start"
+          data-role="Administrador,Vendedor" href="ordenes.html">Órdenes</a><a class="btn btn-outline-light text-start"
+          href="../index.html">Ver tienda</a><button class="btn btn-warning text-start" id="logout-btn">Cerrar
+          sesión</button></div>
     </div>
   </div>
-</footer><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script><script src="../js/datos.js"></script><script src="../js/app.js"></script><script>requireRole('Administrador');</script></body></html>
+  <div class="container-fluid">
+    <div class="row">
+      <aside class="col-lg-2 d-none d-lg-flex flex-column bg-dark text-white p-3 admin-sidebar position-sticky top-0"><a
+          href="index.html" class="navbar-brand fw-bold mb-4">ByteStore Admin</a>
+        <div class="d-grid gap-2"><a class="btn btn-outline-light text-start" href="index.html">Inicio</a><a
+            class="btn btn-outline-light text-start" data-role="Administrador,Vendedor"
+            href="productos.html">Productos</a><a class="btn btn-outline-light text-start" data-role="Administrador"
+            href="usuarios.html">Usuarios</a><a class="btn btn-outline-light text-start"
+            data-role="Administrador,Vendedor" href="ordenes.html">Órdenes</a><a
+            class="btn btn-outline-light text-start" href="../index.html">Ver tienda</a><button
+            class="btn btn-warning text-start" id="logout-btn-2">Cerrar sesión</button></div>
+        <div class="mt-auto small opacity-75">Sesión: <span id="session-name">Sin sesión</span></div>
+      </aside>
+      <main class="col-lg-10 px-0">
+        <div class="container-fluid py-4">
+          <div class="row justify-content-center">
+            <div class="col-xl-9">
+              <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                  <div class="mb-4">
+                    <h1 id="form-title" class="fw-bold">Nuevo producto</h1>
+                    <p class="text-secondary">Todos los campos obligatorios siguen las reglas del proyecto.</p>
+                  </div>
+                  <form id="form-admin-producto" class="needs-validation" novalidate><input type="hidden" name="id">
+                    <div class="row g-3">
+                      <div class="col-md-4"><label class="form-label">Código producto</label><input name="codigo"
+                          class="form-control" minlength="3" required>
+                        <div id="error-prod-codigo" class="invalid-feedback"></div>
+                      </div>
+                      <div class="col-md-8"><label class="form-label">Nombre</label><input name="nombre"
+                          class="form-control" maxlength="100" required>
+                        <div id="error-prod-nombre" class="invalid-feedback"></div>
+                      </div>
+                      <div class="col-12"><label class="form-label">Descripción</label><textarea name="descripcion"
+                          class="form-control" maxlength="500" rows="3"></textarea>
+                        <div id="error-prod-descripcion" class="invalid-feedback"></div>
+                      </div>
+                      <div class="col-md-4"><label class="form-label">Precio</label><input name="precio" type="number"
+                          min="0" step="0.01" class="form-control" required>
+                        <div id="error-prod-precio" class="invalid-feedback"></div>
+                      </div>
+                      <div class="col-md-4"><label class="form-label">Stock</label><input name="stock" type="number"
+                          min="0" step="1" class="form-control" required>
+                        <div id="error-prod-stock" class="invalid-feedback"></div>
+                      </div>
+                      <div class="col-md-4"><label class="form-label">Stock crítico</label><input name="stockCritico"
+                          type="number" min="0" step="1" class="form-control">
+                        <div id="error-prod-stock-critico" class="invalid-feedback"></div>
+                      </div>
+                      <div class="col-md-6"><label class="form-label">Categoría</label><select name="categoria"
+                          class="form-select" required>
+                          <option value="">Seleccione</option>
+                          <option>Periféricos</option>
+                          <option>Monitores</option>
+                          <option>Computadores</option>
+                          <option>Audio</option>
+                          <option>Accesorios</option>
+                        </select>
+                        <div id="error-prod-categoria" class="invalid-feedback"></div>
+                      </div>
+                      <div class="col-md-6"><label class="form-label">Imagen externa</label><input name="imagen"
+                          type="url" class="form-control" placeholder="https://...">
+                        <div id="error-prod-imagen" class="invalid-feedback"></div>
+                        <div class="form-text">Se recomienda una URL de imagen externa, por ejemplo Pexels.</div>
+                      </div>
+                    </div>
+                    <div class="d-flex gap-2 mt-4"><button class="btn btn-primary">Guardar producto</button><a
+                        href="productos.html" class="btn btn-outline-secondary">Cancelar</a></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <footer class="site-footer">
+    <div class="container">
+      <p class="mb-0">© 2026 ByteStore. Todos los derechos reservados.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="productos.html">Periféricos</a>
+        <a href="productos.html">Monitores</a>
+        <a href="productos.html">Accesorios</a>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/datos.js"></script>
+  <script src="../js/app.js"></script>
+  <script>requireRole('Administrador');</script>
+</body>
+
+</html>

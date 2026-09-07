@@ -1,48 +1,141 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="ByteStore, tienda online de tecnología y accesorios."><title>ByteStore | Registro</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="css/styles.css"></head><body>
-<header>
+<!doctype html>
+<html lang="es">
 
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top shadow-sm">
-  <div class="container">
-    <a class="navbar-brand fw-bold brand-mark" href="index.html">ByteStore</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir navegación"><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0"><li class="nav-item"><a class="nav-link "  href="index.html">Inicio</a></li><li class="nav-item"><a class="nav-link "  href="productos.html">Productos</a></li><li class="nav-item"><a class="nav-link "  href="nosotros.html">Nosotros</a></li><li class="nav-item"><a class="nav-link "  href="blogs.html">Blog</a></li><li class="nav-item"><a class="nav-link "  href="contacto.html">Contacto</a></li></ul>
-      <div class="d-flex flex-column flex-lg-row gap-2 align-items-lg-center">
-        <a class="btn btn-sm btn-outline-light" href="login.html">Iniciar sesión</a>
-        <a class="btn btn-sm btn-light" href="registro.html">Registrarse</a>
-        <a class="btn btn-sm btn-warning" href="carrito.html">🛒 Carrito <span class="badge text-bg-dark" id="cart-count">0</span></a>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ByteStore, tienda online de tecnología y accesorios.">
+  <title>ByteStore | Registro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <header>
+
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold brand-mark" href="index.html">ByteStore</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+          aria-controls="mainNav" aria-expanded="false" aria-label="Abrir navegación"><span
+            class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link " href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link " href="productos.html">Productos</a></li>
+            <li class="nav-item"><a class="nav-link " href="nosotros.html">Nosotros</a></li>
+            <li class="nav-item"><a class="nav-link " href="blogs.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link " href="contacto.html">Contacto</a></li>
+          </ul>
+          <div class="d-flex flex-column flex-lg-row gap-2 align-items-lg-center">
+            <a class="btn btn-sm btn-outline-light" href="login.html">Iniciar sesión</a>
+            <a class="btn btn-sm btn-light" href="registro.html">Registrarse</a>
+            <a class="btn btn-sm btn-warning" href="carrito.html">🛒 Carrito <span class="badge text-bg-dark"
+                id="cart-count">0</span></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+  <main class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-xl-9">
+        <div class="card shadow-sm border-0">
+          <div class="card-body p-4 p-lg-5">
+            <div class="mb-4"><span class="text-uppercase small text-primary fw-semibold">Cuenta</span>
+              <h1 class="fw-bold">Crear usuario</h1>
+              <p class="text-secondary">Completa tus datos. El cliente se crea con rol Cliente.</p>
+            </div>
+            <form id="form-registro" novalidate>
+              <div class="row g-3">
+                <div class="col-md-4"><label class="form-label" for="reg-run">RUN</label><input id="reg-run" name="run"
+                    class="form-control" maxlength="9" autocomplete="off" required>
+                  <div id="error-reg-run" class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-4"><label class="form-label" for="reg-nombres">Nombres</label><input id="reg-nombres"
+                    name="nombres" class="form-control" minlength="2" maxlength="20" autocomplete="given-name" require
+                    pattern="[A-Za-zÁÉÍÓÚÜáéíóúüÑñ ]+">
+                  <div id="error-reg-nombres" class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-4"><label class="form-label" for="reg-apellidos">Apellidos</label><input
+                    id="reg-apellidos" name="apellidos" class="form-control" minlength="2" maxlength="20"
+                    autocomplete="family-name" require pattern="[A-Za-zÁÉÍÓÚÜáéíóúüÑñ ]+">
+                  <div id="error-reg-apellidos" class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-6"><label class="form-label" for="reg-correo">Correo</label><input id="reg-correo"
+                    name="correo" type="email" class="form-control" maxlength="100" autocomplete="email" required>
+                  <div class="form-text">Permitidos: @duoc.cl, @profesor.duoc.cl y @gmail.com.</div>
+                  <div id="error-reg-correo" class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-6"><label class="form-label" for="reg-fecha">Fecha de nacimiento</label><input
+                    id="reg-fecha" name="fechaNacimiento" type="date" class="form-control" autocomplete="bday">
+                  <div id="error-reg-fecha" class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-6"><label class="form-label" for="reg-password">Contraseña</label><input
+                    id="reg-password" name="password" type="password" class="form-control" minlength="4" maxlength="10"
+                    autocomplete="new-password" required>
+                  <div id="error-reg-password" class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-6"><label class="form-label" for="reg-password-confirm">Confirmar
+                    contraseña</label><input id="reg-password-confirm" name="passwordConfirm" type="password"
+                    class="form-control" minlength="4" maxlength="10" autocomplete="new-password" required>
+                  <div id="error-reg-password-confirm" class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-6"><label class="form-label" for="reg-region">Región</label><select id="reg-region"
+                    name="region" class="form-select" data-region-source="reg-comuna" required>
+                    <option value="">Seleccione una región</option>
+                    <option value="arica">Arica y Parinacota</option>
+                    <option value="tarapaca">Tarapacá</option>
+                    <option value="antofagasta">Antofagasta</option>
+                    <option value="atacama">Atacama</option>
+                    <option value="coquimbo">Coquimbo</option>
+                    <option value="valparaiso">Valparaíso</option>
+                    <option value="ohiggins">O'Higgins</option>
+                    <option value="maule">Maule</option>
+                    <option value="nuble">Ñuble</option>
+                    <option value="biobio">Biobío</option>
+                    <option value="araucania">La Araucanía</option>
+                    <option value="rios">Los Ríos</option>
+                    <option value="lagos">Los Lagos</option>
+                    <option value="aysen">Aysén</option>
+                    <option value="magallanes">Magallanes</option>
+                    <option value="metropolitana">Metropolitana de Santiago</option>
+                  </select>
+                  <div id="error-reg-region" class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-6"><label class="form-label" for="reg-comuna">Comuna</label><select id="reg-comuna"
+                    name="comuna" class="form-select" required disabled>
+                    <option value="">Seleccione una comuna</option>
+                  </select>
+                  <div id="error-reg-comuna" class="invalid-feedback"></div>
+                </div>
+                <div class="col-12"><label class="form-label" for="reg-direccion">Dirección</label><textarea
+                    id="reg-direccion" name="direccion" class="form-control" maxlength="300" rows="3"
+                    autocomplete="street-address" required></textarea>
+                  <div id="error-reg-direccion" class="invalid-feedback"></div>
+                </div>
+              </div>
+              <button class="btn btn-primary mt-4" type="submit">Crear cuenta</button>
+              <div id="mensaje-reg-exito" class="alert alert-success d-none mt-3" role="alert" aria-live="polite">
+                Usuario registrado correctamente.</div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
-
-</header><main class="container py-5"><div class="row justify-content-center"><div class="col-xl-9"><div class="card shadow-sm border-0"><div class="card-body p-4 p-lg-5"><div class="mb-4"><span class="text-uppercase small text-primary fw-semibold">Cuenta</span><h1 class="fw-bold">Crear usuario</h1><p class="text-secondary">Completa tus datos. El cliente se crea con rol Cliente.</p></div><form id="form-registro" novalidate>
-  <div class="row g-3">
-    <div class="col-md-4"><label class="form-label" for="reg-run">RUN</label><input id="reg-run" name="run" class="form-control" maxlength="9" autocomplete="off" required><div id="error-reg-run" class="invalid-feedback"></div></div>
-    <div class="col-md-4"><label class="form-label" for="reg-nombres">Nombres</label><input id="reg-nombres" name="nombres" class="form-control" minlength="2" maxlength="20" autocomplete="given-name" require pattern="[A-Za-zÁÉÍÓÚÜáéíóúüÑñ ]+"><div id="error-reg-nombres" class="invalid-feedback"></div></div>
-    <div class="col-md-4"><label class="form-label" for="reg-apellidos">Apellidos</label><input id="reg-apellidos" name="apellidos" class="form-control" minlength="2" maxlength="20" autocomplete="family-name" require pattern="[A-Za-zÁÉÍÓÚÜáéíóúüÑñ ]+"><div id="error-reg-apellidos" class="invalid-feedback"></div></div>
-    <div class="col-md-6"><label class="form-label" for="reg-correo">Correo</label><input id="reg-correo" name="correo" type="email" class="form-control" maxlength="100" autocomplete="email" required><div class="form-text">Permitidos: @duoc.cl, @profesor.duoc.cl y @gmail.com.</div><div id="error-reg-correo" class="invalid-feedback"></div></div>
-    <div class="col-md-6"><label class="form-label" for="reg-fecha">Fecha de nacimiento</label><input id="reg-fecha" name="fechaNacimiento" type="date" class="form-control" autocomplete="bday"><div id="error-reg-fecha" class="invalid-feedback"></div></div>
-    <div class="col-md-6"><label class="form-label" for="reg-password">Contraseña</label><input id="reg-password" name="password" type="password" class="form-control" minlength="4" maxlength="10" autocomplete="new-password" required><div id="error-reg-password" class="invalid-feedback"></div></div>
-    <div class="col-md-6"><label class="form-label" for="reg-password-confirm">Confirmar contraseña</label><input id="reg-password-confirm" name="passwordConfirm" type="password" class="form-control" minlength="4" maxlength="10" autocomplete="new-password" required><div id="error-reg-password-confirm" class="invalid-feedback"></div></div>
-    <div class="col-md-6"><label class="form-label" for="reg-region">Región</label><select id="reg-region" name="region" class="form-select" data-region-source="reg-comuna" required><option value="">Seleccione una región</option><option value="arica">Arica y Parinacota</option><option value="tarapaca">Tarapacá</option><option value="antofagasta">Antofagasta</option><option value="atacama">Atacama</option><option value="coquimbo">Coquimbo</option><option value="valparaiso">Valparaíso</option><option value="ohiggins">O'Higgins</option><option value="maule">Maule</option><option value="nuble">Ñuble</option><option value="biobio">Biobío</option><option value="araucania">La Araucanía</option><option value="rios">Los Ríos</option><option value="lagos">Los Lagos</option><option value="aysen">Aysén</option><option value="magallanes">Magallanes</option><option value="metropolitana">Metropolitana de Santiago</option></select><div id="error-reg-region" class="invalid-feedback"></div></div>
-    <div class="col-md-6"><label class="form-label" for="reg-comuna">Comuna</label><select id="reg-comuna" name="comuna" class="form-select" required disabled><option value="">Seleccione una comuna</option></select><div id="error-reg-comuna" class="invalid-feedback"></div></div>
-    <div class="col-12"><label class="form-label" for="reg-direccion">Dirección</label><textarea id="reg-direccion" name="direccion" class="form-control" maxlength="300" rows="3" autocomplete="street-address" required></textarea><div id="error-reg-direccion" class="invalid-feedback"></div></div>
-  </div>
-  <button class="btn btn-primary mt-4" type="submit">Crear cuenta</button>
-  <div id="mensaje-reg-exito" class="alert alert-success d-none mt-3" role="alert" aria-live="polite">Usuario registrado correctamente.</div>
-</form></div></div></div></div></main>
-<footer class="site-footer">
-  <div class="container">
-    <p class="mb-0">© 2026 ByteStore. Todos los derechos reservados.</p>
-    <div class="d-flex flex-wrap justify-content-center gap-3">
-      <a href="productos.html">Periféricos</a>
-      <a href="productos.html">Monitores</a>
-      <a href="productos.html">Accesorios</a>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p class="mb-0">© 2026 ByteStore. Todos los derechos reservados.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="productos.html">Periféricos</a>
+        <a href="productos.html">Monitores</a>
+        <a href="productos.html">Accesorios</a>
+      </div>
     </div>
-  </div>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/datos.js"></script>
-<script src="js/app.js"></script>
-<script src="js/validaciones.js"></script>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/datos.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/validaciones.js"></script>

@@ -75,13 +75,15 @@ function initForms() {
   const contact = document.getElementById('form-contacto');
   if (contact) {
     const rules = [
-            { name: 'nombre', errorId: 'error-nombre', validate: value => {
-        const clean = value.trim();
-        if (!clean) return 'El nombre es obligatorio.';
-        if (clean.length > 20) return 'Máximo 20 caracteres.';
-        if (!textoNombreValido(clean)) return 'El nombre solo puede contener letras y espacios.';
-        return '';
-      } },
+      {
+        name: 'nombre', errorId: 'error-nombre', validate: value => {
+          const clean = value.trim();
+          if (!clean) return 'El nombre es obligatorio.';
+          if (clean.length > 20) return 'Máximo 20 caracteres.';
+          if (!textoNombreValido(clean)) return 'El nombre solo puede contener letras y espacios.';
+          return '';
+        }
+      },
       { name: 'correo', errorId: 'error-correo', validate: value => !value.trim() ? 'El correo es obligatorio.' : value.length > 100 ? 'Máximo 100 caracteres.' : !emailValido(value.trim()) ? 'Usa @duoc.cl, @profesor.duoc.cl o @gmail.com.' : '' },
       { name: 'comentario', errorId: 'error-comentario', validate: value => !value.trim() ? 'El comentario es obligatorio.' : value.length > 500 ? 'Máximo 500 caracteres.' : '' }
     ];
@@ -130,20 +132,24 @@ function initForms() {
     };
     const rules = [
       { name: 'run', errorId: 'error-reg-run', validate: value => !value.trim() ? 'El RUN es obligatorio.' : !runValido(value) ? 'RUN inválido. Usa formato sin puntos ni guion.' : '' },
-      { name: 'nombres', errorId: 'error-reg-nombres', validate: value => {
-        const clean = value.trim();
-        if (!clean) return 'El nombre es obligatorio.';
-        if (clean.length > 20) return 'Máximo 20 caracteres.';
-        if (!textoNombreValido(clean)) return 'El nombre solo puede contener letras y espacios.';
-        return '';
-      } },
-      { name: 'apellidos', errorId: 'error-reg-apellidos', validate: value => {
-        const clean = value.trim();
-        if (!clean) return 'Los apellidos son obligatorios.';
-        if (clean.length > 20) return 'Máximo 20 caracteres.';
-        if (!textoNombreValido(clean)) return 'Los apellidos solo pueden contener letras y espacios.';
-        return '';
-      } },
+      {
+        name: 'nombres', errorId: 'error-reg-nombres', validate: value => {
+          const clean = value.trim();
+          if (!clean) return 'El nombre es obligatorio.';
+          if (clean.length > 20) return 'Máximo 20 caracteres.';
+          if (!textoNombreValido(clean)) return 'El nombre solo puede contener letras y espacios.';
+          return '';
+        }
+      },
+      {
+        name: 'apellidos', errorId: 'error-reg-apellidos', validate: value => {
+          const clean = value.trim();
+          if (!clean) return 'Los apellidos son obligatorios.';
+          if (clean.length > 20) return 'Máximo 20 caracteres.';
+          if (!textoNombreValido(clean)) return 'Los apellidos solo pueden contener letras y espacios.';
+          return '';
+        }
+      },
       { name: 'correo', errorId: 'error-reg-correo', validate: value => !value.trim() ? 'El correo es obligatorio.' : value.length > 100 ? 'Máximo 100 caracteres.' : !emailValido(value.trim()) ? 'Usa @duoc.cl, @profesor.duoc.cl o @gmail.com.' : '' },
       { name: 'password', errorId: 'error-reg-password', validate: value => !value ? 'La contraseña es obligatoria.' : value.length < 4 || value.length > 10 ? 'Debe tener entre 4 y 10 caracteres.' : '' },
       { name: 'passwordConfirm', errorId: 'error-reg-password-confirm', validate: value => !value ? 'Confirma tu contraseña.' : value !== fields.password.value ? 'Las contraseñas no coinciden.' : '' },
@@ -192,7 +198,7 @@ function initForms() {
       const success = document.getElementById('mensaje-reg-exito');
       if (success) { success.textContent = 'Usuario registrado correctamente. Ya puedes iniciar sesión.'; success.classList.remove('d-none'); }
       registro.reset();
-      registro.querySelectorAll('.is-valid,.is-invalid').forEach(element => element.classList.remove('is-valid','is-invalid'));
+      registro.querySelectorAll('.is-valid,.is-invalid').forEach(element => element.classList.remove('is-valid', 'is-invalid'));
       cargarComunas('');
       setTimeout(() => location.href = 'login.html', 1200);
     });
@@ -201,14 +207,14 @@ function initForms() {
   const productForm = document.getElementById('form-admin-producto');
   if (productForm) {
     const rules = [
-      { name:'codigo', errorId:'error-prod-codigo', validate:value => !value.trim() ? 'El código es obligatorio.' : value.trim().length < 3 ? 'Mínimo 3 caracteres.' : '' },
-      { name:'nombre', errorId:'error-prod-nombre', validate:value => !value.trim() ? 'El nombre es obligatorio.' : value.length > 100 ? 'Máximo 100 caracteres.' : '' },
-      { name:'descripcion', errorId:'error-prod-descripcion', validate:value => value.length > 500 ? 'Máximo 500 caracteres.' : '' },
-      { name:'precio', errorId:'error-prod-precio', validate:value => value === '' ? 'El precio es obligatorio.' : Number(value) < 0 ? 'El precio no puede ser negativo.' : '' },
-      { name:'stock', errorId:'error-prod-stock', validate:value => value === '' ? 'El stock es obligatorio.' : !Number.isInteger(Number(value)) || Number(value) < 0 ? 'Debe ser un entero ≥ 0.' : '' },
-      { name:'stockCritico', errorId:'error-prod-stock-critico', validate:value => value !== '' && (!Number.isInteger(Number(value)) || Number(value) < 0) ? 'Debe ser un entero ≥ 0.' : '' },
-      { name:'categoria', errorId:'error-prod-categoria', validate:value => !value ? 'Selecciona una categoría.' : '' },
-      { name:'imagen', errorId:'error-prod-imagen', validate:value => value && !/^https?:\/\//i.test(value) ? 'La imagen debe ser una URL válida.' : '' }
+      { name: 'codigo', errorId: 'error-prod-codigo', validate: value => !value.trim() ? 'El código es obligatorio.' : value.trim().length < 3 ? 'Mínimo 3 caracteres.' : '' },
+      { name: 'nombre', errorId: 'error-prod-nombre', validate: value => !value.trim() ? 'El nombre es obligatorio.' : value.length > 100 ? 'Máximo 100 caracteres.' : '' },
+      { name: 'descripcion', errorId: 'error-prod-descripcion', validate: value => value.length > 500 ? 'Máximo 500 caracteres.' : '' },
+      { name: 'precio', errorId: 'error-prod-precio', validate: value => value === '' ? 'El precio es obligatorio.' : Number(value) < 0 ? 'El precio no puede ser negativo.' : '' },
+      { name: 'stock', errorId: 'error-prod-stock', validate: value => value === '' ? 'El stock es obligatorio.' : !Number.isInteger(Number(value)) || Number(value) < 0 ? 'Debe ser un entero ≥ 0.' : '' },
+      { name: 'stockCritico', errorId: 'error-prod-stock-critico', validate: value => value !== '' && (!Number.isInteger(Number(value)) || Number(value) < 0) ? 'Debe ser un entero ≥ 0.' : '' },
+      { name: 'categoria', errorId: 'error-prod-categoria', validate: value => !value ? 'Selecciona una categoría.' : '' },
+      { name: 'imagen', errorId: 'error-prod-imagen', validate: value => value && !/^https?:\/\//i.test(value) ? 'La imagen debe ser una URL válida.' : '' }
     ];
     bindLiveValidation(productForm, rules);
     productForm.addEventListener('submit', event => {
@@ -220,29 +226,33 @@ function initForms() {
   const userForm = document.getElementById('form-admin-usuario');
   if (userForm) {
     const rules = [
-      { name:'run', errorId:'error-user-run', validate:value => !value.trim() ? 'El RUN es obligatorio.' : !runValido(value) ? 'RUN inválido.' : '' },
-      { name:'nombres', errorId:'error-user-nombres', validate:value => {
-        const clean = value.trim();
-        if (!clean) return 'El nombre es obligatorio.';
-        if (clean.length > 20) return 'Máximo 20 caracteres.';
-        if (!textoNombreValido(clean)) return 'El nombre solo puede contener letras y espacios.';
-        return '';
-      } },
-      { name:'apellidos', errorId:'error-user-apellidos', validate:value => {
-        const clean = value.trim();
-        if (!clean) return 'Los apellidos son obligatorios.';
-        if (clean.length > 20) return 'Máximo 20 caracteres.';
-        if (!textoNombreValido(clean)) return 'Los apellidos solo pueden contener letras y espacios.';
-        return '';
-      } },
-      { name:'correo', errorId:'error-user-correo', validate:value => !value.trim() ? 'El correo es obligatorio.' : value.length > 100 ? 'Máximo 100 caracteres.' : !emailValido(value.trim()) ? 'Usa @duoc.cl, @profesor.duoc.cl o @gmail.com.' : '' },
-      { name:'password', errorId:'error-user-password', validate:value => !value ? 'La contraseña es obligatoria.' : value.length < 4 || value.length > 10 ? 'Debe tener entre 4 y 10 caracteres.' : '' },
-      { name:'direccion', errorId:'error-user-direccion', validate:value => !value.trim() ? 'La dirección es obligatoria.' : value.length > 300 ? 'Máximo 300 caracteres.' : '' },
-      { name:'tipo', errorId:'error-user-tipo', validate:value => !value ? 'Selecciona un rol.' : '' }
+      { name: 'run', errorId: 'error-user-run', validate: value => !value.trim() ? 'El RUN es obligatorio.' : !runValido(value) ? 'RUN inválido.' : '' },
+      {
+        name: 'nombres', errorId: 'error-user-nombres', validate: value => {
+          const clean = value.trim();
+          if (!clean) return 'El nombre es obligatorio.';
+          if (clean.length > 20) return 'Máximo 20 caracteres.';
+          if (!textoNombreValido(clean)) return 'El nombre solo puede contener letras y espacios.';
+          return '';
+        }
+      },
+      {
+        name: 'apellidos', errorId: 'error-user-apellidos', validate: value => {
+          const clean = value.trim();
+          if (!clean) return 'Los apellidos son obligatorios.';
+          if (clean.length > 20) return 'Máximo 20 caracteres.';
+          if (!textoNombreValido(clean)) return 'Los apellidos solo pueden contener letras y espacios.';
+          return '';
+        }
+      },
+      { name: 'correo', errorId: 'error-user-correo', validate: value => !value.trim() ? 'El correo es obligatorio.' : value.length > 100 ? 'Máximo 100 caracteres.' : !emailValido(value.trim()) ? 'Usa @duoc.cl, @profesor.duoc.cl o @gmail.com.' : '' },
+      { name: 'password', errorId: 'error-user-password', validate: value => !value ? 'La contraseña es obligatoria.' : value.length < 4 || value.length > 10 ? 'Debe tener entre 4 y 10 caracteres.' : '' },
+      { name: 'direccion', errorId: 'error-user-direccion', validate: value => !value.trim() ? 'La dirección es obligatoria.' : value.length > 300 ? 'Máximo 300 caracteres.' : '' },
+      { name: 'tipo', errorId: 'error-user-tipo', validate: value => !value ? 'Selecciona un rol.' : '' }
     ];
     bindLiveValidation(userForm, rules);
     userForm.addEventListener('change', () => {
-      ['region','comuna'].forEach(name => {
+      ['region', 'comuna'].forEach(name => {
         const input = userForm.elements[name];
         if (input) input.classList.toggle('is-invalid', !input.value);
       });
